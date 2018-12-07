@@ -1,7 +1,7 @@
 from time import sleep
 import pigpio
 #no Rpi.gpio!
-
+#tesg git from laptop delete this line asap
 #bcm pin mode
 DIR = 20     # Direction GPIO Pin
 STEP = 21    # Step GPIO Pin
