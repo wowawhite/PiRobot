@@ -73,10 +73,11 @@ def generate_ramp(ramp):
     chain = []
     for i in range(length):
         steps = ramp[i][1]
-        x = steps & 255 #=255
+        x = steps & 255 # for what?
         y = steps >> 8 #=0
-        print("x=",x)
-        print("y=",y)
+
+
+
         chain += [255, 0, wid[i], 255, 1, x, y]
 
     pi.wave_chain(chain)  # Transmit chain.
