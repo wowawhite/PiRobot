@@ -1,0 +1,4 @@
+reqired packages
+linux: xboxdrv, python3.5, pigpio-daemon, xbox.py
+Python: pigpio,
+Python custom: xbox.py PoluluA4988driver.py IODevice.py

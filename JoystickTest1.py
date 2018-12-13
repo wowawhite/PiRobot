@@ -35,10 +35,12 @@ while not joy.X():
 	leftVector = (u-v)/2
 
 	#print stuff
+
 	show("X-Button for Exit!  ")
 	show(chr(17))
 	show(" Left X: ", fmtFloat(joy.leftX()), " Left Y: ", fmtFloat(joy.leftY()))
 	show("  Left Vector:",fmtFloat(leftVector), "  Right Vector:", fmtFloat((rightVector)))
+	showIf(joy.leftTrigger(), "T")
 	#rewrite line
 	show(chr(13))
 joy.close()
