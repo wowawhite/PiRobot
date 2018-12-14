@@ -8,8 +8,8 @@ _MODE0_ = 0
 _MODE1_ = 1
 _MODE2_ = 2
 _DECAY_ = 3
-_DIR_ = 4
-_STEP_ = 5 ## must be a Pi GPIO pin
+_DIR_ = 20
+_STEP_ = 21 ## must be a Pi GPIO pin
 _nENBL_ = 6
 _nRESET_ = 7
 _nSLEEP_ = 8
@@ -28,7 +28,7 @@ _PINS_ = {
 
 _DEGREE_PER_STEP_ = 1.8
 
-_MAX_RPM_ = 500
+_MAX_RPM_ = 100
 
 _NAME_ = 'stepper motor'
 
@@ -41,8 +41,8 @@ class StepperMotorA4988(IODevice):
         IODevice.__init__(self, name = name, dtype = 'Stepper Motors',
                            display = True, GPIO = GPIO,
                            pigpio = pigpio, pigpio_pi = pigpio_pi)
-
-        self.MCP = None
+#motor parameters from where?
+        self.MCP = None #MCP = motion control product?/parameter?
         self.driver = 'A4988'
         self.pins = pins
         self.degree_per_step = degree_per_step
