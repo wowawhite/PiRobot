@@ -1,4 +1,5 @@
-
+import pigpio
+#import pigpio_pi
 
 class IODevice():
 	def __init__(self):
