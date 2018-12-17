@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # from https://raspberrypi.stackexchange.com/questions/88724/add-pulse-object-to-transmitting-pigpio-waveform
 from IODevice import IODevice
+import pigpio
 import numpy as np
 import time
 
@@ -32,16 +33,18 @@ _MAX_RPM_ = 100
 
 _NAME_ = 'stepper motor'
 
+
 class StepperMotorA4988(IODevice):
     def __init__(self, name = _NAME_, pins = _PINS_,
                  degree_per_step = _DEGREE_PER_STEP_,
                  max_rpm = _MAX_RPM_, GPIO = None, pigpio = None,
                  pigpio_pi = None, **kwargs):
-
+        """
         IODevice.__init__(self, name = name, dtype = 'Stepper Motors',
                            display = True, GPIO = GPIO,
                            pigpio = pigpio, pigpio_pi = pigpio_pi)
-#motor parameters from where?
+        """
+        #start paramerer, kinda global vars
         self.MCP = None #MCP = motion control product?/parameter?
         self.driver = 'A4988'
         self.pins = pins
@@ -316,7 +319,7 @@ class StepperMotorA4988(IODevice):
         # device list is a list of all motors running in continuous mode
         device_list = []
         for name, device in self.MCP.devices.items():
-            if (device.driver and device.driver == 'DRV8825'):
+            if (device.driver and device.driver == 'A4988'):
                 if device.operation_type in _OPERATION_TYPE_:
                     running_dict[name] = device.operation_type
                 if device.operation_type == 'continuous':
